@@ -59,7 +59,7 @@ googleAnalytics = ""
     subtitle = "Tech enthusiastic."
 
     # if you want to use libravatar or gravatar for the header image
-    avatarEmail = "img/avatar.png"
+    avatarEmail = "img/avatar.jpg"
 
     # set an path to the image file you want to use | overwrites avatar by email
     customImage = ""
