@@ -20,12 +20,9 @@ https://try.github.io/levels/1/challenges/1[Interactive git tutorial]
 http://ndpsoftware.com/git-cheatsheet.html[Visual/interactive
 cheatsheet]
 
-<<<<<<< HEAD
+== Comandi locali
 
-=== Comandi locali
 
-=======
->>>>>>> c516a03790014ba9fe35b3f4100deaf019848665
 [source,bash]
 ----
 git init .
@@ -60,27 +57,17 @@ Per tornare:
 caos@pc:~/Downloads/test-git$ git switch -
 ----
 
-=== Per caricare su github
+== Per caricare su github
 
-<<<<<<< HEAD
 * creare repo su github
 * dalla cartella locale:
-*
-=======
-. creare repo su github
-. dalla cartella locale:
-+
->>>>>>> c516a03790014ba9fe35b3f4100deaf019848665
+
 [source,bash]
 ----
 git remote add origin https://github.com/caos-linux/test-git.git
 git push -u origin master
 ----
-<<<<<<< HEAD
 * andare avanti con:
-=======
-. andare avanti con:
->>>>>>> c516a03790014ba9fe35b3f4100deaf019848665
 +
 [source,bash]
 ----
