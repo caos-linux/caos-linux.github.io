@@ -21,7 +21,7 @@ cheatsheet]
 
 [source,bash]
 ----
-git init .
+git init
 git add .
 git status  # vedo lo stato dei file
 git diff    # modifiche da buttare nello stage
