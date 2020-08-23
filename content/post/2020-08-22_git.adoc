@@ -61,7 +61,7 @@ caos@pc:~/Downloads/test-git$ git switch -
 
 * creare repo su github
 * dalla cartella locale:
-
++
 [source,bash]
 ----
 git remote add origin https://github.com/caos-linux/test-git.git
