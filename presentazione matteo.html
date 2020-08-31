@@ -9,12 +9,12 @@
 		<meta name="description" content="Simulazione del Protocollo TCP su Rete Ottica a Pacchetto">
 		<meta name="author" content="Matteo Mortaro">
 
-		<link rel="stylesheet" href="dist/reset.css">
+		<!-- <link rel="stylesheet" href="dist/reset.css"> -->
 		<link rel="stylesheet" href="dist/reveal.css">
 		<link rel="stylesheet" href="dist/theme/white.css" id="theme">
 
 		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+		<!-- <link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme"> -->
 	</head>
 	<body>
 		<div class="reveal">
@@ -73,25 +73,139 @@ Dott. Ing. PAOLO ZAFFONI
 </ul>
 
 <img src="mm/schema_rete_ottica.gif" alt="rete ottica">
-
 </section>
 
 
-<section>
+
+
+<section data-auto-animate data-auto-animate-unmatched="fade">
 <h3>Il modello SIR</h3>
 
 <ul style="font-size:20px;">
-<li>i Suscettibili (S), ovvero gli individui non infetti ma che possono con	trarre l’infezione;</li>
-<li>gli Infetti (I), ovvero gli indidui che hanno contratto l’infezione e che	sono in grado di trasmettere la malattia;</li>
-<li>i Rimossi (R), ovvero gli individui che non partecipano al processo
+<li><i>i Suscettibili (S)</i>, ovvero gli individui non infetti ma che possono con	trarre l’infezione;</li>
+<li><i>gli Infetti (I)</i>, ovvero gli indidui che hanno contratto l’infezione e che	sono in grado di trasmettere la malattia;</li>
+<li><i>i Rimossi (R)</i>, ovvero gli individui che non partecipano al processo
 	epidemico perché durante il decorso dell’epidemia sono isolati, o hanno
 	contratto la malattia e sono guariti, oppure morti a causa dell’infezione;</li>
 </ul>
 
 <img src="mm/sir.svg" alt="modello sir" width="100%"/>
+</section>
+
+
+
+
+
+<section data-auto-animate data-auto-animate-unmatched="fade">
+<h3>Il modello SIR</h3>
+<img src="mm/sir.svg" alt="modello sir" width="100%"/>
+
+\[\begin{aligned}
+S(t) + I(t) + R(t) &amp; = costante = N \quad \\
+\end{aligned} \]
+
+\[\begin{aligned}
+R(t) &amp; = N - S(t) - I(t)
+\end{aligned} \]
+</section>
+
+
+
+
+
+
+<section data-auto-animate data-auto-animate-unmatched="fade">
+<h3>Il modello SIR</h3>
+
+<p style="text-align:left;">Supponiamo inoltre che:</p>
+<ul style="font-size:20px;">
+<li>il tempo di incubazione della malattia sia trascurabile, ossia che ogni
+infetto sia immediatamente infettivo;</li>
+<li>il contagio avvenga per contatto diretto tra un suscettibile ed un infetto;</li>
+<li>la probabilità di incontro tra due qualsiasi individui della popolazione
+sia uguale;</li>
+<li>ogni individuo infetto abbia una probabilità di rimozione per unità di
+tempo costante;</li>
+</ul>
+</section>
+
+
+
+<section data-auto-animate data-auto-animate-unmatched="fade">
+<h3>Il modello SIR</h3>
+
+<p style="text-align:left;">Supponiamo inoltre che:</p>
+<ul style="font-size:20px;">
+<li>il tempo di incubazione della malattia sia trascurabile, ossia che ogni
+infetto sia immediatamente infettivo;</li>
+<li>il contagio avvenga per contatto diretto tra un suscettibile ed un infetto;</li>
+<li>la probabilità di incontro tra due qualsiasi individui della popolazione
+sia uguale;</li>
+<li>ogni individuo infetto abbia una probabilità di rimozione per unità di
+tempo costante;</li>
+</ul>
+
+
+\[\begin{aligned}
+\left\{
+    \begin{alignedat}{3} \label{SIR}
+        \dot{S}(t) & = -\beta S(t)I(t) \\
+        \dot{I}(t) & = \beta S(t)I(t) {} - {} \gamma I \\
+        \dot{R}(t) & = \gamma I(t)
+    \end{alignedat}
+
+\right.
+
+\end{aligned} \]
+</section>
+
+<section data-auto-animate data-auto-animate-unmatched="fade">
+<h3>Un nuovo Modello</h3>
+<p style="text-align:left;"> Ma da oggi c'è un modello meglio del SIR</p>
 
 </section>
 
+<section data-auto-animate data-auto-animate-unmatched="fade">
+<h3 style="opacity: 0.2;">Un nuovo Modello</h3>
+<p style="text-align:left; opacity: 0.2;"> Ma da oggi c'è un modello meglio del SIR</p>
+<p>Se vai su una scala...</p>
+<p class="fragment">e chissenefrega di stare attento...</p>
+<p class="fragment">Ottieni il nuovo modello:</p>
+<img class="fragment" src="mm/matteosir.svg" alt="modello sir" width="50%"/>
+</section>
+
+<section data-auto-animate data-auto-animate-unmatched="fade">
+<h3>Matteo-SIR</h3>
+<img src="mm/matteosir.svg" alt="modello sir" width="100%"/>
+<p style="text-align:left;">Dove:</p>
+<ul style="font-size:20px;">
+<li class="fragment"><i>i Suscettibili (S)</i>, ovvero gli individui non infetti ma che possono con	trarre l’infezione;</li>
+<li class="fragment"><i>gli Infetti (I)</i>, ovvero gli indidui che hanno contratto l’infezione e che	sono in grado di trasmettere la malattia;</li>
+<li class="fragment"><i>i Lussati (L)</i>, ovvero gli individui che gli è venuta fuori la spalla;</li>
+<li class="fragment"><i>i "in Malattia" (M)</i>, ovvero gli individui che sono in degenza;</li>
+</ul>
+
+
+</section>
+
+
+<section data-auto-animate data-auto-animate-unmatched="fade" data-background="#b5533c" data-background-transition="fade">
+	<h3>Conclusioni</h3>
+	<p class="fragment fade-in" style="text-align:left;">Abbiamo scoperto che c'è un nuovo modello più giusto del modello sir:</p>
+	<p class="fragment" style="text-align:left;">Il modello Matteo-SIR</p>
+	<p class="fragment" style="text-align:left;">Grazie Matteo!</p>
+</section>
+
+<section data-auto-animate data-auto-animate-unmatched="fade" data-background="#b5533c" data-background-transition="fade">
+	<h3>Conclusioni</h3>
+		<audio src="mm/Applausi.mp4" data-autoplay></audio>
+
+		<p class="fragment" style="text-align:left;">Grazie Matteo!</p>
+<img class="fragment" src="mm/spumante.jpeg" alt="spumante.jpeg" />
+
+
+
+</section>
 
 
 			</div>
@@ -101,15 +215,28 @@ Dott. Ing. PAOLO ZAFFONI
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
 			// - https://revealjs.com/config/
 			Reveal.initialize({
 				hash: true,
+				transition: "fade",
+				math: {
+					// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+					config: 'TeX-AMS_HTML-full',
+					TeX: {
+						Macros: {
+							R: '\\mathbb{R}',
+							set: [ '\\left\\{#1 \\; ; \\; #2\\right\\}', 2 ]
+						}
+					}
+				},
 
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ]
 			});
 		</script>
 	</body>
