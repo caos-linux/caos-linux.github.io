@@ -37,17 +37,23 @@ Per restorare un file modificato aggiunto in stage:
 
 - vedere comando dato da git status
 
-Per tornare ad vecchio commit:
+
+Per vedere l'elenco dei commit:
 
 [source,bash]
 ----
-caos@pc:~/Downloads/test-git$ git log --pretty=oneline
+$ git log --pretty=oneline
 843e53fb8f16a1705a466d3738f232767592062d (HEAD -> master) quarto
 a4ad24ab44f13165e480657c2af797c42fb3bb49 terzo
 f2c0d9d8f589d7c64d34edbb6aea38f20dd75257 secondo
 656500c009d78ab6015739f69fabd76ba943c6a0 primo
+----
 
-caos@pc:~/Downloads/test-git$ git checkout 656500c009d78ab6015739f69fabd76ba943c6a0
+Per tornare ad vecchio commit:
+
+[source,bash]
+----
+$ git checkout 656500c009d78ab6015739f69fabd76ba943c6a0
 ----
 
 Per tornare all'ultimo commit:
@@ -60,11 +66,12 @@ caos@pc:~/Downloads/test-git$ git switch -
 == Per caricare su github
 
 * creare repo su github
+* rinominare il branch principale in "master"
 * dalla cartella locale:
 +
 [source,bash]
 ----
-git remote add origin https://github.com/caos-linux/test-git.git
+git remote add origin https://github.com/utente/test-git.git
 git push -u origin master
 ----
 * andare avanti con:
