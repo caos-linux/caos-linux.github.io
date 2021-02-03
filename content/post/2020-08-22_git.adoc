@@ -42,7 +42,8 @@ Per vedere l'elenco dei commit:
 
 [source,bash]
 ----
-$ git log --pretty=oneline
+git log --pretty=oneline
+
 843e53fb8f16a1705a466d3738f232767592062d (HEAD -> master) quarto
 a4ad24ab44f13165e480657c2af797c42fb3bb49 terzo
 f2c0d9d8f589d7c64d34edbb6aea38f20dd75257 secondo
@@ -53,15 +54,22 @@ Per tornare ad vecchio commit:
 
 [source,bash]
 ----
-$ git checkout 656500c009d78ab6015739f69fabd76ba943c6a0
+git checkout 656500c009d78ab6015739f69fabd76ba943c6a0
 ----
 
 Per tornare all'ultimo commit:
 
 [source,bash]
 ----
-caos@pc:~/Downloads/test-git$ git switch -
+git switch -
 ----
+
+Per vedere i file modificati dall'ultimo commit:
+[source,bash]
+----
+git diff
+----
+
 
 == Per caricare su github
 
@@ -78,13 +86,13 @@ git push -u origin master
 +
 [source,bash]
 ----
-* modifica file
-* git add .
-* git commit -m "descr"
-* git push -u origin master
+modifica file
+git add .
+git commit -m "descr"
+git push -u origin master
 ----
 
-Per scaricare aggiornamenti fatti da qualcun altro:
+== Per scaricare aggiornamenti fatti da qualcun altro:
 
 [source,bash]
 ----
