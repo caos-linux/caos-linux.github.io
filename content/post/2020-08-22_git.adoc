@@ -80,6 +80,7 @@ git push -u origin master
 ----
 * modifica file
 * git add .
+* git commit -m "descr"
 * git push -u origin master
 ----
 
