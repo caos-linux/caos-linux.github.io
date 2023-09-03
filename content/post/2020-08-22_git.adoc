@@ -74,7 +74,7 @@ git diff
 == Per caricare su github
 
 * creare repo su github
-* rinominare il branch principale in "master"
+* non creare README
 * dalla cartella locale:
 +
 [source,bash]
