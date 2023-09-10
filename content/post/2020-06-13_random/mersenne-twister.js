@@ -1,45 +1,15 @@
----
-title: "Generatore di sequenza di interi pseudo-random"
-date: 2020-06-13
-draft: false
-tags: [random]
-summary: Generatore di sequenza di interi pseudo-random, compresa tra un valore minimo ed un valore massimo, basata su generatore Mersenne-twister scritto in javascript
----
-
-
-<p>Generatore di sequenza di interi pseudo-random, compresa tra un valore minimo ed un valore massimo, basata su generatore Mersenne-twister scritto in javascript <a href="https://gist.github.com/banksean/300494"> https://gist.github.com/banksean/300494 </a>.</p>
-
-<p>A parità di seme, la sequenza generata è sempre la stessa.</p>
-
-
-<form id="frm1">
-
-  <p>Valore minimo <input type="text" name="min" value="10" size="6" maxlength="12"> </p>
-
-  <p>Valore massimo <input type="text" name="max" value="25" size="6" maxlength="12"> </p>
-
-<p> Seme  <input type="text" id="id" size="16" maxlength="64" value="123"> </p>
-
-</form>
-
-<button onclick="myFunction()">Estrazione</button>
-
-
-<p id="demo"></p>
-
-<script>
 
 /*
   I've wrapped Makoto Matsumoto and Takuji Nishimura's code in a namespace
   so it's better encapsulated. Now you can have multiple random number generators
   and they won't stomp all over eachother's state.
-
+  
   If you want to use this as a substitute for Math.random(), use the random()
   method like so:
-
+  
   var m = new MersenneTwister();
   var randomNumber = m.random();
-
+  
   You can also call the other genrand_{foo}() methods on the instance.
 
   If you want to use a specific seed in order to get a repeatable random
@@ -52,31 +22,31 @@ summary: Generatore di sequenza di interi pseudo-random, compresa tra un valore 
   Sean McCullough (banksean@gmail.com)
 */
 
-/*
+/* 
    A C-program for MT19937, with initialization improved 2002/1/26.
    Coded by Takuji Nishimura and Makoto Matsumoto.
-
-   Before using, initialize the state by using init_genrand(seed)
+ 
+   Before using, initialize the state by using init_genrand(seed)  
    or init_by_array(init_key, key_length).
-
+ 
    Copyright (C) 1997 - 2002, Makoto Matsumoto and Takuji Nishimura,
-   All rights reserved.
-
+   All rights reserved.                          
+ 
    Redistribution and use in source and binary forms, with or without
    modification, are permitted provided that the following conditions
    are met:
-
+ 
      1. Redistributions of source code must retain the above copyright
         notice, this list of conditions and the following disclaimer.
-
+ 
      2. Redistributions in binary form must reproduce the above copyright
         notice, this list of conditions and the following disclaimer in the
         documentation and/or other materials provided with the distribution.
-
-     3. The names of its contributors may not be used to endorse or promote
-        products derived from this software without specific prior written
+ 
+     3. The names of its contributors may not be used to endorse or promote 
+        products derived from this software without specific prior written 
         permission.
-
+ 
    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
    "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
    LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
@@ -88,8 +58,8 @@ summary: Generatore di sequenza di interi pseudo-random, compresa tra un valore 
    LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
    NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
    SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-
+ 
+ 
    Any feedback is very welcome.
    http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/emt.html
    email: m-mat @ math.sci.hiroshima-u.ac.jp (remove space)
@@ -98,20 +68,20 @@ summary: Generatore di sequenza di interi pseudo-random, compresa tra un valore 
 var MersenneTwister = function(seed) {
   if (seed == undefined) {
     seed = new Date().getTime();
-  }
-  /* Period parameters */
+  } 
+  /* Period parameters */  
   this.N = 624;
   this.M = 397;
   this.MATRIX_A = 0x9908b0df;   /* constant vector a */
   this.UPPER_MASK = 0x80000000; /* most significant w-r bits */
   this.LOWER_MASK = 0x7fffffff; /* least significant r bits */
-
+ 
   this.mt = new Array(this.N); /* the array for the state vector */
   this.mti=this.N+1; /* mti==N+1 means mt[N] is not initialized */
 
   this.init_genrand(seed);
-}
-
+}  
+ 
 /* initializes mt[N] with a seed */
 MersenneTwister.prototype.init_genrand = function(s) {
   this.mt[0] = s >>> 0;
@@ -127,7 +97,7 @@ MersenneTwister.prototype.init_genrand = function(s) {
       /* for >32 bit machines */
   }
 }
-
+ 
 /* initialize by an array with array-length */
 /* init_key is the array for initializing keys */
 /* key_length is its length */
@@ -155,9 +125,9 @@ MersenneTwister.prototype.init_by_array = function(init_key, key_length) {
     if (i>=this.N) { this.mt[0] = this.mt[this.N-1]; i=1; }
   }
 
-  this.mt[0] = 0x80000000; /* MSB is 1; assuring non-zero initial array */
+  this.mt[0] = 0x80000000; /* MSB is 1; assuring non-zero initial array */ 
 }
-
+ 
 /* generates a random number on [0,0xffffffff]-interval */
 MersenneTwister.prototype.genrand_int32 = function() {
   var y;
@@ -194,103 +164,34 @@ MersenneTwister.prototype.genrand_int32 = function() {
 
   return y >>> 0;
 }
-
+ 
 /* generates a random number on [0,0x7fffffff]-interval */
 MersenneTwister.prototype.genrand_int31 = function() {
   return (this.genrand_int32()>>>1);
 }
-
+ 
 /* generates a random number on [0,1]-real-interval */
 MersenneTwister.prototype.genrand_real1 = function() {
-  return this.genrand_int32()*(1.0/4294967295.0);
-  /* divided by 2^32-1 */
+  return this.genrand_int32()*(1.0/4294967295.0); 
+  /* divided by 2^32-1 */ 
 }
 
 /* generates a random number on [0,1)-real-interval */
 MersenneTwister.prototype.random = function() {
-  return this.genrand_int32()*(1.0/4294967296.0);
+  return this.genrand_int32()*(1.0/4294967296.0); 
   /* divided by 2^32 */
 }
-
+ 
 /* generates a random number on (0,1)-real-interval */
 MersenneTwister.prototype.genrand_real3 = function() {
-  return (this.genrand_int32() + 0.5)*(1.0/4294967296.0);
+  return (this.genrand_int32() + 0.5)*(1.0/4294967296.0); 
   /* divided by 2^32 */
 }
-
+ 
 /* generates a random number on [0,1) with 53-bit resolution*/
-MersenneTwister.prototype.genrand_res53 = function() {
-  var a=this.genrand_int32()>>>5, b=this.genrand_int32()>>>6;
-  return(a*67108864.0+b)*(1.0/9007199254740992.0);
-}
+MersenneTwister.prototype.genrand_res53 = function() { 
+  var a=this.genrand_int32()>>>5, b=this.genrand_int32()>>>6; 
+  return(a*67108864.0+b)*(1.0/9007199254740992.0); 
+} 
 
 /* These real versions are due to Isaku Wada, 2002/01/09 added */
-
-var bucket = [];
-var estr =[];
-
-
-function getRandomFromBucket(rnd) {
-//   var randomIndex = Math.floor(Math.random()*bucket.length);
-   var randomIndex = Math.floor(rnd*bucket.length);
-   return bucket.splice(randomIndex, 1)[0];
-}
-
-function myFunction() {
-  var x = document.getElementById("frm1");
-  var text = "";
-  var i;
-
-
-  min=parseInt(x.elements[0].value);
-  max=parseInt(x.elements[1].value);
-  seed=parseInt(x.elements[2].value);
-
-  var m = new MersenneTwister(seed);
-  bucket = [];
-  estr =[];
-
-  for (var i=min;i<=max;i++) {
-    bucket.push(i);
-   }
-
-/*
-  text += "min = " + min + "<br>";
-  text += "max = " + max + "<br>";
-  text += "seed = " + seed + "<br>";
-  text += "bucket = " + bucket + "<br>";
-*/
-
-  for (var i=min;i<=max;i++) {
-  estr.push(getRandomFromBucket(m.random()));
-   }
-//  text += "estr = " + estr + "<br>";
-
-
-  text += "<table>";
-  text += "<tr><th> Posizione </th><th>Estratto </th></tr>";
-  for (var i = 0; i < estr.length; i++) {
-    var p=i+1;
-    text +=  "<tr><td>" + p + "</td><td>" + estr[i] + "</td></tr>";
-  }
-  text += "</table>"
-
-  document.getElementById("demo").innerHTML = text;
-}
-
-
-
-//console.log(getRandomFromBucket());
-
-
-
-
-</script>
-
-
-
-
-
-<p> Progetto su Github:</p>
-
-<a href="https://github.com/caos-linux/Mersenne-Twister-Random-Sequence-Generator">https://github.com/caos-linux/Mersenne-Twister-Random-Sequence-Generator</a>

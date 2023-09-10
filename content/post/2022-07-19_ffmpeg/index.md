@@ -6,8 +6,7 @@ draft: false
 categories: []
 tags: [ffmpeg]
 summary: Appunti su ffmpeg
-toc: true
-author: ""
+ShowToc: true
 ---
 
 ### Installazione (Windows)

@@ -11,4 +11,6 @@ link: ""
 target: "_blank"
 ---
 
+![MM](avatar.jpg "MM")
+
 Interessato all'informatica e alla pubblica amministrazione.

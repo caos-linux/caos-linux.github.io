@@ -119,7 +119,7 @@ menu:
       url: /archives/
       weight: 10
     - identifier: tags
-      name: tags
+      name: Tags
       url: /tags/
       weight: 20
     - identifier: about
