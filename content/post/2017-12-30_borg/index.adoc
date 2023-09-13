@@ -4,6 +4,7 @@ date: 2017-12-30
 draft: false
 tags: [backup, linux]
 summary: Procedura per il backup dati di un sistema linux su un HD portatile, grazie al programma borg backup.
+type: post
 ---
 
 Vogliamo eseguire il backup dei dati utente di un sistema linux su un HD portatile.

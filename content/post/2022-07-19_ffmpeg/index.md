@@ -7,6 +7,7 @@ categories: []
 tags: [ffmpeg]
 summary: Appunti su ffmpeg
 ShowToc: true
+type: post
 ---
 
 ### Installazione (Windows)

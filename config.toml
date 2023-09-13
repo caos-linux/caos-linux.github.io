@@ -1,0 +1,85 @@
+baseURL = "https://matteo.mortaro.it/"
+defaultContentLanguage = "en"
+languageCode = "en"
+title = "Matteo Mortaro"
+
+theme = "gokarna"
+
+# Automatically generate robots.txt
+enableRobotsTXT = true
+
+
+enableEmoji = true
+
+# Choose one of emacs, trac or perldoc
+pygmentsStyle = "monokai"
+
+[params]
+  footer = "Matteo Mortaro"
+  description = "Tech Aware"
+  avatarURL = "/images/avatar.jpg"
+  AvatarAltText = "avatar"
+  avatarSize = "size-m"
+
+socialIcons = [
+#    {name = "twitter", url = "https://example.com"},
+#    {name = "linkedin", url = "https://example.com"},
+#    {name = "stackoverflow", url = "https://example.com"},
+#    {name = "dribbble", url = "https://example.com"},
+#    {name = "instagram", url = "https://example.com"},
+    {name = "session", url = "page/contact"},
+    {name = "github", url = "https://github.com/caos-linux"},    
+#    {name = "email", url = "mailto:example@example.com"}
+  ]
+  metaKeywords = ["blog", "gokarna", "hugo"]
+
+
+
+[menu]
+  [[menu.main]]
+    # Unique identifier for a menu item
+    identifier = "post"
+
+    url = "/post/"
+    
+    # You can add extra information before the name (HTML format is supported), such as icons
+    pre = ""
+
+    # You can add extra information after the name (HTML format is supported), such as icons
+    post = ""
+
+    # Display name
+    name = "Posts"
+
+    # Weights are used to determine the ordering
+    weight = 1
+
+  [[menu.main]]
+    identifier = "tags"
+    name = "Tags"
+    url = "/tags/"
+    weight = 2
+
+  [[menu.main]]
+    identifier = "pages"
+    name = "Pages"
+    url = "/page/"
+    weight = 3
+
+  [[menu.main]]
+    identifier = "github"
+    url = "https://github.com/caos-linux"
+    weight = 4
+    
+    # We use feather-icons: https://feathericons.com/
+    pre = "<span data-feather='github'></span>"
+
+[markup]
+  [markup.tableOfContents]
+    startLevel = 1
+    endLevel = 4
+    ordered = false
+
+[security.exec]
+allow = ["^dart-sass-embedded$", "^go$", "^npx$", "^postcss$", "^asciidoctor$"]
+osEnv = ["(?i)^(PATH|PATHEXT|APPDATA|TMP|TEMP|TERM|RUBYLIB)$"]

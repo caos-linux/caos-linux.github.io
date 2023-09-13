@@ -4,6 +4,7 @@ date: 2020-08-22
 draft: false
 tags: [git]
 summary: Alcuni comandi basilari su git
+type: post
 ---
 
 Guide in rete:
