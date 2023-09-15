@@ -2,6 +2,7 @@
 title: "Random Graphics"
 date: 2023-09-05T16:10:59+02:00
 draft: false
+tags: [random]
 type: post
 showTableOfContents: true
 ---
