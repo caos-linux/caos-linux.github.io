@@ -8,6 +8,7 @@ tags: [ffmpeg]
 summary: Appunti su ffmpeg
 ShowToc: true
 type: post
+showTableOfContents: true
 ---
 
 ### Installazione (Windows)
@@ -18,7 +19,7 @@ type: post
 
 ### Per vedere le tracce di un file
 
-```
+```bash
 ffmpeg -i file.mp4 
 
 
@@ -29,13 +30,13 @@ Stream #0:3(ita): Subtitle: subrip (default)
 ```
 ### Cambiare audio ad un video con un altro audio
 
-```
+```bash
 ffmpeg -i video.asf -i audio.mp3 -map 0:0 -map 1:0 -c copy output.avi
 ```
 
 ### Estrarre da un film video e il solo audio italiano
 
-```
+```bash
 ffmpeg -i file.mp4 -map 0:0 -map 0:2 -c copy new_file.mp4
 ```
 
@@ -48,13 +49,13 @@ file '/path/here/file2.avi'
 file '/path/here/file3.avi'
 ```
 Then pass that file to ffmpeg
-```
+```bash
 ffmpeg -f concat -i list.txt -c copy video_draft.avi
 ```
 rif.: http://stackoverflow.com/questions/15186500/howto-merge-two-avi-files-using-ffmpeg
 
 oppure:
-```
+```cmd
 Copy /b *.dv video.dv
 ```
 
@@ -104,7 +105,7 @@ estrae dal 4 min e 18 in poi.
 ### Estrarre 2 pezzetti di filmato
 
 Ripetere 2 volte il processo precedente e concatenare
-```
+```bash
 $ ffmpeg -ss 60 -i input -t 5 -codec copy clip1.mkv
 $ ffmpeg -ss 120 -i input -t 5 -codec copy clip2.mkv
 $ echo "file 'clip1.mkv'" > concat.txt
@@ -130,6 +131,13 @@ ffmpeg -i input.mp4 -c copy -metadata:s:v:0 rotate=90 output.mp4
 
 https://stackoverflow.com/questions/15335073/can-i-set-rotation-field-for-a-video-stream-with-ffmpeg/15336581#15336581
 
+```bash
+ffmpeg -i in.mp4 -metadata:s:v rotate=0 -codec copy put.mp4
+```
+0 resetta la impostazione fatte dal cellulare
+
+
+
 ### Rotating videos with FFmpeg
 
 ```
@@ -141,11 +149,6 @@ For the transpose parameter you can pass:
 1 = 90Clockwise
 2 = 90CounterClockwise
 3 = 90Clockwise and Vertical Flip
-
-### Rotate lossless
-ffmpeg -i in.mp4 -metadata:s:v rotate=0 -codec copy put.mp4
-
-0 resetta la impostazione fatte dal cellulare
 
 ### Split AVI
 ```
@@ -173,7 +176,9 @@ http://ffmpeg.org/ffmpeg-codecs.html#libopus-1
 
 (usato il 15.3.19)
 ```
-ffmpeg -loop 1 -i vlcsnap-2019-03-15-12h03m02s461.png -i seconda_parte.mp3 -c:v libx264 -tune stillimage -c:a aac -b:a 192k -pix_fmt yuv420p -shortest seconda_parte.mp4
+ffmpeg -loop 1 -i vlcsnap-2019-03-15-12h03m02s461.png \
+-i seconda_parte.mp3 -c:v libx264 -tune stillimage \
+-c:a aac -b:a 192k -pix_fmt yuv420p -shortest seconda_parte.mp4
 ```
 https://superuser.com/questions/1041816/combine-one-image-one-audio-file-to-make-one-video-using-ffmpeg
 

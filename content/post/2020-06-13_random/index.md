@@ -5,14 +5,15 @@ draft: false
 tags: [random]
 summary: Generatore di sequenza di interi pseudo-random, compresa tra un valore minimo ed un valore massimo, basata su generatore Mersenne-twister scritto in javascript
 type: post
+showTableOfContents: true
 ---
 
 
-<p>Generatore di sequenza di interi pseudo-random, compresa tra un valore minimo ed un valore massimo, basata su generatore Mersenne-twister scritto in javascript <a href="https://gist.github.com/banksean/300494"> https://gist.github.com/banksean/300494 </a>.</p>
+Generatore di sequenza di interi pseudo-random, compresa tra un valore minimo ed un valore massimo, basata su generatore Mersenne-twister scritto in javascript <https://gist.github.com/banksean/300494>.
 
-<p>A parità di seme, la sequenza generata è sempre la stessa.</p>
+A parità di seme, la sequenza generata è sempre la stessa.
 
-
+{{< rawhtml >}}
 <form id="frm1">
 
   <p>Valore minimo <input type="text" name="min" value="10" size="6" maxlength="12"> </p>
@@ -93,10 +94,10 @@ function myFunction() {
 
 </script>
 
+{{< /rawhtml >}}
 
 
 
+Progetto su Github:
 
-<p> Progetto su Github:</p>
-
-<a href="https://github.com/caos-linux/Mersenne-Twister-Random-Sequence-Generator">https://github.com/caos-linux/Mersenne-Twister-Random-Sequence-Generator</a>
+<https://github.com/caos-linux/Mersenne-Twister-Random-Sequence-Generator>

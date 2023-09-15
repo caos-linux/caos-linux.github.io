@@ -5,35 +5,36 @@ draft: false
 tags: [backup, linux]
 summary: Procedura per il backup dati di un sistema linux su un HD portatile, grazie al programma borg backup.
 type: post
+showTableOfContents: true
 ---
 
 Vogliamo eseguire il backup dei dati utente di un sistema linux su un HD portatile.
 
-Utilizziamo il tool linux da linea di comando borgbackup (https://github.com/borgbackup/borg).
+Utilizziamo il tool linux da linea di comando borgbackup (<https://github.com/borgbackup/borg>).
 
-== Installazione
+## Installazione
 
 * scaricare binario da https://github.com/borgbackup/borg/releases
 * rename in borg e chmod +x
 * spostare in ~/bin
 
-== Preparazione HD portatile
+## Preparazione HD portatile
 * formattare in ext4
 * creare file gigante per non incorrere in problemi di spazio su disco:
-+
-[source,bash]
-fallocate -l 2G spaziolibero.out
 
+```bash
+fallocate -l 2G spaziolibero.out
+```
 * creare repository denominato "borg":
-+
-[source,bash]
-----
+
+
+```bash
 borg init --encryption=repokey borg
-----
-+
+```
+
 e mettere la password 2 volte
 
-== Script su HD portatile `backup.sh`
+## Script su HD portatile `backup.sh`
 Il seguente script:
 
 * chiede la password da input
@@ -41,25 +42,22 @@ Il seguente script:
 * cancella i vecchi backup secondo la politica di pruning impostata
 * riporta a video e in un file i log delle operazioni
 
-.backup.sh
-[source,bash]
-----
-include::static/backup.sh[]
-----
-== Script su HD portatile `borgmount.sh`
+```bash 
+{{% include "backup.sh" %}}
+```
+
+## Script su HD portatile `borgmount.sh`
 Il secondo script:
 
 * chiede la password da input
 * monta il backup (se non è già montato)
 * smonta il backup (se è già montato)
 
-.borgmount.sh
-[source,bash]
-----
-include::static/borgmount.sh[]
-----
+```bash
+{{% include "borgmount.sh" %}}
 
-== Utilizzo
+```
+## Utilizzo
 Backup:
 
 * collegare l'hard disk al PC e lanciare il comando `backup.sh`.
