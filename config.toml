@@ -21,18 +21,20 @@ pygmentsStyle = "monokai"
   AvatarAltText = "avatar"
   avatarSize = "size-m"
 
-socialIcons = [
-#    {name = "twitter", url = "https://example.com"},
-#    {name = "linkedin", url = "https://example.com"},
-#    {name = "stackoverflow", url = "https://example.com"},
-#    {name = "dribbble", url = "https://example.com"},
-#    {name = "instagram", url = "https://example.com"},
-    {name = "session", url = "page/contact"},
-    {name = "github", url = "https://github.com/caos-linux"},    
-#    {name = "email", url = "mailto:example@example.com"}
+  socialIcons = [
+  #    {name = "twitter", url = "https://example.com"},
+  #    {name = "linkedin", url = "https://example.com"},
+  #    {name = "stackoverflow", url = "https://example.com"},
+  #    {name = "dribbble", url = "https://example.com"},
+  #    {name = "instagram", url = "https://example.com"},
+  {name = "session", url = "page/contact"},
+  {name = "github", url = "https://github.com/caos-linux"},    
+  #    {name = "email", url = "mailto:example@example.com"}
   ]
   metaKeywords = ["blog", "gokarna", "hugo"]
-
+  customHeadHTML = '''
+<script async src="https://analytics.eu.umami.is/script.js" data-website-id="91e6113e-940c-4872-b9f1-10163e57fc26"></script>
+  '''
 
 
 [menu]
